@@ -71,7 +71,7 @@
 
 			this.speak = function(b){
 				if(!this.utter){ this.utter = new SpeechSynthesisUtterance() }
-				if((typeof(b) == 'object') && !(this.ignore.tags.indexOf(b.target.nodeName.toLowerCase()) >= 0 )){
+				if((typeof(b) == 'object') && (this.ignore.tags.indexOf(b.target.nodeName.toLowerCase()) < 0 )){
 					this.utter.text = b.target.textContent ? b.target.textContent : b.target.alt ? b.target.alt : "There is nothing to read in this element or it is part of the ignore attribute.";
 				}
 				else{
