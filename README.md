@@ -60,7 +60,7 @@ v.setupVoice({'pitch' : 2, 'rate' : 0, 'voice' : this.voiceList[57]})
 ### speak
 `v.speak(e)`
 
-- If `v.setupVoice()` was not called previously, it will set up a default `SpeechSynthesisUtterance` instance
+- If `v.setupVoice()` was not called previously, it will set up a default `SpeechSynthesisUtterance` instance before proceeding
 - If `e` is an object, it indicates that it is an `event` passed from the `clickHandler`, in which case it checks the clicked element against the `v.ignore` config to see if it should get the text or ignore it.
 -- If the clicked element is not in the `ignore` config, it gets the `textContent` if it is available; if none is available it checks for `alt` text (images)
 - If `e` is a string, it just says the string out loud
