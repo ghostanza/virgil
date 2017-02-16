@@ -12,12 +12,12 @@ Messing around with the SpeechSynthesis API to create a sort of screen reader
 This will create a new instance of the class and set up default (unless you specify other attributes)
 
 ### Test
-`v.test`
+`v.test()`
 
 This trigger a test voice to sound
 
 ### voiceLookup
-`v.voiceLookup()`
+`v.voiceLookup(options)`
 
 - When no arguments are specified, this will return an object containing all of the available voices. The object will have the voice name as the key and the `v.voiceList` index as the value. Ex: `{'whisper' : 57}`.
 - If you know the name of the voice, you can call `v.voiceLookup(name)` (ex: `v.voiceLookup('whisper')`) and it will return the voice object for that name.
