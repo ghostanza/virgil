@@ -1,7 +1,8 @@
 # Virgil
 
 Messing around with the SpeechSynthesis API to create a sort of screen reader
-780bytes minifyed + gzipped
+
+*780bytes minifyed + gzipped*
 
 ## Setup
 ### Loading the script
