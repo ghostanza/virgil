@@ -2,7 +2,11 @@
 
 Messing around with the SpeechSynthesis API to create a sort of screen reader
 
-*780bytes minifyed + gzipped*
+*2.7kb ugly*
+
+*1.8kb minified* 
+
+*780bytes minified + gzipped*
 
 ## Setup
 ### Loading the script
