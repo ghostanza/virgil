@@ -1,3 +1,3 @@
-# talktome
+# Virgil
 
-messing around with the SpeechSynthesis API to create a pseudo screen-reader
+Messing around with the SpeechSynthesis API to create a sort of screen reader
