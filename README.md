@@ -20,15 +20,13 @@ This trigger a test voice to sound
 `v.voiceLookup(options)`
 
 - When no arguments are specified, this will return an object containing all of the available voices. The object will have the voice name as the key and the `v.voiceList` index as the value. Ex: `{'whisper' : 57}`.
-- If you know the name of the voice, you can call `v.voiceLookup(name)` (ex: `v.voiceLookup('whisper')`) and it will return the voice object for that name.
-
-ex: 
+- If you know the name of the voice, you can call `v.voiceLookup(name)` and it will return the voice object for that name. **Example**:
 ```
 v.voiceLookup('whisper')
 SpeechSynthesisVoice {voiceURI: "Whisper", name: "Whisper", lang: "en-US", localService: true, default: false}
 ```
 - If you know the `v.voiceList` index, you can call `v.voiceLookup(index)` to get the voice object.
-ex:
+**Example**:
 ```
 v.voiceLookup(57)
 SpeechSynthesisVoice {voiceURI: "Whisper", name: "Whisper", lang: "en-US", localService: true, default: false}
@@ -39,7 +37,7 @@ SpeechSynthesisVoice {voiceURI: "Whisper", name: "Whisper", lang: "en-US", local
 
 - If no arguments are specified, it will create a default `SpeechSynthesisUtterance` instance.
 - You can pass the voice object, pitch, and rate to this.
-Example:
+**Example**:
 ```
 v.setupVoice({'pitch' : 2, 'rate' : 0, 'voice' : this.voiceList[57]})
 ```
