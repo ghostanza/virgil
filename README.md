@@ -12,23 +12,32 @@ Messing around with the SpeechSynthesis API to create a sort of screen reader
 This will create a new instance of the class and set up default (unless you specify other attributes)
 
 ### Test
-`v.test`
+`v.test()`
 
 This trigger a test voice to sound
 
 ### voiceLookup
-`v.voiceLookup()`
+`v.voiceLookup(options)`
 
 - When no arguments are specified, this will return an object containing all of the available voices. The object will have the voice name as the key and the `v.voiceList` index as the value. Ex: `{'whisper' : 57}`.
-- If you know the name of the voice, you can call `v.voiceLookup(name)` (ex: `v.voiceLookup('whisper')`) and it will return the voice object for that name.
-- If you know the `v.voiceList` index, you can call `v.voiceLookup(index)` (ex: `v.voiceLookup(57)`) to get the voice object.
+- If you know the name of the voice, you can call `v.voiceLookup(name)` and it will return the voice object for that name. **Example**:
+```
+v.voiceLookup('whisper')
+SpeechSynthesisVoice {voiceURI: "Whisper", name: "Whisper", lang: "en-US", localService: true, default: false}
+```
+- If you know the `v.voiceList` index, you can call `v.voiceLookup(index)` to get the voice object.
+**Example**:
+```
+v.voiceLookup(57)
+SpeechSynthesisVoice {voiceURI: "Whisper", name: "Whisper", lang: "en-US", localService: true, default: false}
+```
 
 ### setupVoice
 `v.setupVoice(options)`
 
 - If no arguments are specified, it will create a default `SpeechSynthesisUtterance` instance.
 - You can pass the voice object, pitch, and rate to this.
-Example:
+**Example**:
 ```
 v.setupVoice({'pitch' : 2, 'rate' : 0, 'voice' : this.voiceList[57]})
 ```
@@ -41,7 +50,7 @@ v.setupVoice({'pitch' : 2, 'rate' : 0, 'voice' : this.voiceList[57]})
 ### clickInit
 `v.clickInit()`
 
-- This binds the click event to the speak event and passes the clicked element (if you want to click an element and have it read the text inside of it)
+- This binds the click event to the speak event and passes the clicked element. It will read the `textContent` (or `alt` text) of whatever element you click on.
 
 ### endClick
 `v.endClick()`
@@ -51,7 +60,8 @@ v.setupVoice({'pitch' : 2, 'rate' : 0, 'voice' : this.voiceList[57]})
 ### speak
 `v.speak(e)`
 
-- If `v.setupVoice()` was not called previously, it will set up a default `SpeechSynthesisUtterance` instance
-- If `e` is an object, it indicates that it is an `event` passed from the click handler, in which case it checks the clicked element against the `v.ignore` config to see if it should get the text or ignore it.
+- If `v.setupVoice()` was not called previously, it will set up a default `SpeechSynthesisUtterance` instance before proceeding
+- If `e` is an object, it indicates that it is an `event` passed from the `clickHandler`, in which case it checks the clicked element against the `v.ignore` config to see if it should get the text or ignore it.
 -- If the clicked element is not in the `ignore` config, it gets the `textContent` if it is available; if none is available it checks for `alt` text (images)
-- If `e` is a string, it just says the string out loud; otherwise it does not say anything
+- If `e` is a string, it just says the string out loud
+- Otherwise it does not say anything
