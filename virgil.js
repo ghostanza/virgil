@@ -20,7 +20,8 @@
 							if( attrs['ignore'][item]){ attrs['ignore'][item].push(attr[item]) }
 						}
 					}
-					attrs[attr] = arguments[0][attr]}
+					attrs[attr] = arguments[0][attr];
+				}
 			}
 
 			for( i in attrs ){ this[i] = attrs[i] }
